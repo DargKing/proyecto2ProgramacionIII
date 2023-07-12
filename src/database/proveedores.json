@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "nombreCompañia": "Distribuidora Médica S.A.",
+    "direccion": "Av. Principal #123"
+  },
+  {
+    "id": 2,
+    "nombreCompañia": "Productos Médicos del Sur",
+    "direccion": "Calle 5 #456"
+  },
+  {
+    "id": 3,
+    "nombreCompañia": "Equipos Médicos del Norte",
+    "direccion": "Av. Norte #789"
+  },
+  {
+    "id": 4,
+    "nombreCompañia": "Suministros Médicos de Occidente",
+    "direccion": "Calle 10 #1010"
+  },
+  {
+    "id": 5,
+    "nombreCompañia": "Distribuidora de Insumos Médicos",
+    "direccion": "Av. Este #1212"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "username": "medico1",
+    "contraseña": "pass123",
+    "rol": "MEDICO"
+  },
+  {
+    "id": 2,
+    "username": "enfermera1",
+    "contraseña": "pass456",
+    "rol": "ENFERMERA"
+  },
+  {
+    "id": 3,
+    "username": "medico2",
+    "contraseña": "pass789",
+    "rol": "MEDICO"
+  }
+]

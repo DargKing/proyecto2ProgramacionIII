@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "descripcion": "Jeringas de 5 ml",
+    "cantidad": 200,
+    "idProveedor": 1
+  },
+  {
+    "id": 2,
+    "descripcion": "Gasas estériles",
+    "cantidad": 500,
+    "idProveedor": 2
+  },
+  {
+    "id": 3,
+    "descripcion": "Guantes de látex",
+    "cantidad": 1000,
+    "idProveedor": 3
+  },
+  {
+    "id": 4,
+    "descripcion": "Vendas elásticas",
+    "cantidad": 300,
+    "idProveedor": 1
+  },
+  {
+    "id": 5,
+    "descripcion": "Termómetros digitales",
+    "cantidad": 50,
+    "idProveedor": 4
+  }
+]

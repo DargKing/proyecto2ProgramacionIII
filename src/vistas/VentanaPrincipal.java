@@ -5,25 +5,74 @@
  */
 package vistas;
 
+import controladores.ControladorVentanas;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import modelos.BaseDeDatos;
+
 /**
  *
  * @author yorman
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    private BaseDeDatos database;
+    private int ventanaActual;
+    private int pestañaActual;
+
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
-        
-        MenuSecretaria menu = new MenuSecretaria();
-        menu.setSize(200, 100);
-        
-        this.menu.add(menu);
-        this.menu.repaint();
-        this.menu.revalidate();
+
+        this.database = new BaseDeDatos();
+
+        MenuSecretaria menu = new MenuSecretaria(this);
+        menu.setSize(100, 100);
+
+        this.menu.setSize(100, 100);
+
+        this.containerMenu.add(menu);
+        this.containerMenu.repaint();
+        this.containerMenu.revalidate();
+
+        ControladorVentanas.cambiarPestañas(this, ControladorVentanas.idPestaña.CITA);
     }
+
+    public BaseDeDatos getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(BaseDeDatos database) {
+        this.database = database;
+    }
+
+    public int getVentanaActual() {
+        return ventanaActual;
+    }
+
+    public void setVentanaActual(int ventanaActual) {
+        this.ventanaActual = ventanaActual;
+    }
+
+    public int getPestañaActual() {
+        return pestañaActual;
+    }
+
+    public void setPestañaActual(int pestañaActual) {
+        this.pestañaActual = pestañaActual;
+    }
+
+    public JTabbedPane getContenidoPestañas() {
+        return contenidoPestañas;
+    }
+
+    public void setContenidoPestañas(JTabbedPane contenidoPestañas) {
+        this.contenidoPestañas = contenidoPestañas;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,34 +84,64 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         menu = new javax.swing.JPanel();
+        containerMenu = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        containerJTabbedPane = new javax.swing.JPanel();
+        contenidoPestañas = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menu.setBackground(new java.awt.Color(0, 255, 153));
 
+        containerMenu.setBackground(new java.awt.Color(204, 204, 204));
+        containerMenu.setLayout(new javax.swing.BoxLayout(containerMenu, javax.swing.BoxLayout.Y_AXIS));
+
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
+            .addGroup(menuLayout.createSequentialGroup()
+                .addComponent(containerMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(menuLayout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(containerMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+
+        containerJTabbedPane.setBackground(new java.awt.Color(204, 204, 255));
+        containerJTabbedPane.setPreferredSize(new java.awt.Dimension(951, 471));
+
+        contenidoPestañas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        javax.swing.GroupLayout containerJTabbedPaneLayout = new javax.swing.GroupLayout(containerJTabbedPane);
+        containerJTabbedPane.setLayout(containerJTabbedPaneLayout);
+        containerJTabbedPaneLayout.setHorizontalGroup(
+            containerJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(containerJTabbedPaneLayout.createSequentialGroup()
+                .addComponent(contenidoPestañas, javax.swing.GroupLayout.PREFERRED_SIZE, 971, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        containerJTabbedPaneLayout.setVerticalGroup(
+            containerJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(contenidoPestañas, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
+            .addComponent(containerJTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(containerJTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,6 +198,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel containerJTabbedPane;
+    private javax.swing.JPanel containerMenu;
+    private javax.swing.JTabbedPane contenidoPestañas;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel menu;
     // End of variables declaration//GEN-END:variables

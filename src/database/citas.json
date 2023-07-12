@@ -1,0 +1,196 @@
+[
+  {
+    "id": 1,
+    "idPaciente": 1,
+    "idFactura": 1,
+    "fecha": "2023-07-10",
+    "hora": "10:30",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Gripe",
+      "tratamiento": "Descanso y medicamentos",
+      "medicamentos": "Paracetamol",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Dolor de cabeza y fiebre"
+  },
+  {
+    "id": 2,
+    "idPaciente": 2,
+    "idFactura": 2,
+    "fecha": "2023-07-11",
+    "hora": "14:00",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Estrés",
+      "tratamiento": "Terapia y descanso",
+      "medicamentos": "Ninguno",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Ansiedad y cansancio"
+  },
+  {
+    "id": 3,
+    "idPaciente": 1,
+    "idFactura": 3,
+    "fecha": "2023-07-12",
+    "hora": "16:15",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Lesión muscular",
+      "tratamiento": "Reposo y fisioterapia",
+      "medicamentos": "Ibuprofeno",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Dolor de espalda"
+  },
+  {
+    "id": 4,
+    "idPaciente": 3,
+    "idFactura": 4,
+    "fecha": "2023-07-13",
+    "hora": "09:50",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Infección de oído",
+      "tratamiento": "Antibióticos",
+      "medicamentos": "Amoxicilina",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Dolor de oído"
+  },
+  {
+    "id": 5,
+    "idPaciente": 1,
+    "idFactura": 5,
+    "fecha": "2023-07-14",
+    "hora": "11:50",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Alergia",
+      "tratamiento": "Antihistamínicos",
+      "medicamentos": "Loratadina",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Picazón en la piel"
+  },
+  {
+    "id": 6,
+    "idPaciente": 3,
+    "idFactura": 6,
+    "fecha": "2023-07-15",
+    "hora": "13:20",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Dolor de garganta",
+      "tratamiento": "Antibióticos",
+      "medicamentos": "Amoxicilina",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Dificultad para tragar"
+  },
+  {
+    "id": 7,
+    "idPaciente": 4,
+    "idFactura": -1,
+    "fecha": "2023-07-16",
+    "hora": "10:15",
+    "completada": false,
+    "informeDeCita": {
+      "dignostico": "",
+      "tratamiento": "",
+      "medicamentos": "",
+      "examenOcular": ""
+    },
+    "razon": "Dolor al orinar"
+  },
+  {
+    "id": 8,
+    "idPaciente": 5,
+    "idFactura": -1,
+    "fecha": "2023-07-17",
+    "hora": "15:00",
+    "completada": false,
+    "informeDeCita": {
+      "dignostico": "",
+      "tratamiento": "",
+      "medicamentos": "",
+      "examenOcular": ""
+    },
+    "razón": "Mareo y vómito"
+  },
+  {
+    "id": 9,
+    "idPaciente": 6,
+    "idFactura": -1,
+    "fecha": "2023-07-18",
+    "hora": "11:00",
+    "completada": false,
+    "informeDeCita": {
+      "dignostico": "",
+      "tratamiento": "",
+      "medicamentos": "",
+      "examenOcular": ""
+    },
+    "razon": "Dolor abdominal"
+  },
+  {
+    "id": 10,
+    "idPaciente": 7,
+    "idFactura": -1,
+    "fecha": "2023-07-19",
+    "hora": "12:00",
+    "completada": false,
+    "informeDeCita": {
+      "dignostico": "",
+      "tratamiento": "",
+      "medicamentos": "",
+      "examenOcular": ""
+    },
+    "razon": "Fiebre y malestar general"
+  }, {
+    "id": 11,
+    "idPaciente": 7,
+    "idFactura": 7,
+    "fecha": "2023-07-20",
+    "hora": "16:50",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Presión alta",
+      "tratamiento": "Dieta y ejercicio",
+      "medicamentos": "Ninguno",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Dolor de cabeza y mareo"
+  },
+  {
+    "id": 12,
+    "idPaciente": 6,
+    "idFactura": 8,
+    "fecha": "2023-07-21",
+    "hora": "11:00",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Infección de garganta",
+      "tratamiento": "Antibióticos",
+      "medicamentos": "Amoxicilina",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Dolor al tragar"
+  },
+  {
+    "id": 13,
+    "idPaciente": 1,
+    "idFactura": 9,
+    "fecha": "2023-07-22",
+    "hora": "14:15",
+    "completada": true,
+    "informeDeCita": {
+      "dignostico": "Dolor de espalda",
+      "tratamiento": "Fisioterapia",
+      "medicamentos": "Ibuprofeno",
+      "examenOcular": "Ninguno"
+    },
+    "razon": "Molestias en la columna"
+  }
+]
