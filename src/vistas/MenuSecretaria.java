@@ -74,16 +74,31 @@ public class MenuSecretaria extends javax.swing.JPanel {
         actividad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         actividad.setText("<html><body style=\"margin: 3px 10px\">Actividad</body></html>");
         actividad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        actividad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                actividadMouseClicked(evt);
+            }
+        });
         subOpcionesConsultorio.add(actividad);
 
         egresos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         egresos.setText("<html><body style=\"margin: 5px 10px 3px 10px\">Egresos</body></html>");
         egresos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        egresos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                egresosMouseClicked(evt);
+            }
+        });
         subOpcionesConsultorio.add(egresos);
 
         ingresos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ingresos.setText("<html><body style=\"margin: 5px 10px 5px 10px\">Ingresos</body></html>");
         ingresos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ingresos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresosMouseClicked(evt);
+            }
+        });
         subOpcionesConsultorio.add(ingresos);
 
         opcionConsultorio.add(subOpcionesConsultorio);
@@ -137,6 +152,11 @@ public class MenuSecretaria extends javax.swing.JPanel {
         informe.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         informe.setText("<html><body style=\"margin: 5px 10px 5px 10px\">Informe</body></html>");
         informe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        informe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                informeMouseClicked(evt);
+            }
+        });
         subOpcionesPaciente.add(informe);
 
         opcionPaciente.add(subOpcionesPaciente);
@@ -160,11 +180,21 @@ public class MenuSecretaria extends javax.swing.JPanel {
         materialesMedicos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         materialesMedicos.setText("<html><body style=\"margin: 3px 10px\">Materiales Medicos</body></html>");
         materialesMedicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        materialesMedicos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialesMedicosMouseClicked(evt);
+            }
+        });
         subOpcionesInventario.add(materialesMedicos);
 
         proveedores.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         proveedores.setText("<html><body style=\"margin: 5px 10px 5px 10px\">Proveedores</body></html>");
         proveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        proveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                proveedoresMouseClicked(evt);
+            }
+        });
         subOpcionesInventario.add(proveedores);
 
         opcionInventario.add(subOpcionesInventario);
@@ -200,6 +230,36 @@ public class MenuSecretaria extends javax.swing.JPanel {
         // TODO add your handling code here:
         ControladorVentanas.cambiarPestañas(ventana, ControladorVentanas.idPestaña.HISTORIAL);
     }//GEN-LAST:event_historialMouseClicked
+
+    private void informeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_informeMouseClicked
+        // TODO add your handling code here:
+        ControladorVentanas.cambiarPestañas(ventana, ControladorVentanas.idPestaña.INFORME);
+    }//GEN-LAST:event_informeMouseClicked
+
+    private void proveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proveedoresMouseClicked
+        // TODO add your handling code here:
+        ControladorVentanas.cambiarPestañas(ventana, ControladorVentanas.idPestaña.PROVEEDORES);
+    }//GEN-LAST:event_proveedoresMouseClicked
+
+    private void materialesMedicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialesMedicosMouseClicked
+        // TODO add your handling code here:
+        ControladorVentanas.cambiarPestañas(ventana, ControladorVentanas.idPestaña.MATERIAL_MEDICO);
+    }//GEN-LAST:event_materialesMedicosMouseClicked
+
+    private void ingresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresosMouseClicked
+        // TODO add your handling code here:
+        ControladorVentanas.cambiarPestañas(ventana, ControladorVentanas.idPestaña.INGRESOS);
+    }//GEN-LAST:event_ingresosMouseClicked
+
+    private void egresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_egresosMouseClicked
+        // TODO add your handling code here:
+        ControladorVentanas.cambiarPestañas(ventana, ControladorVentanas.idPestaña.EGRESOS);
+    }//GEN-LAST:event_egresosMouseClicked
+
+    private void actividadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actividadMouseClicked
+        // TODO add your handling code here:
+        ControladorVentanas.cambiarPestañas(ventana, ControladorVentanas.idPestaña.ACTIVIDAD);
+    }//GEN-LAST:event_actividadMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

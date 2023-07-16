@@ -24,6 +24,15 @@ public class HistorialMedico {
         this.tratamientosOftalmologicosPrevios = tratamientosOftalmologicosPrevios;
         this.lentesCorrectivosPrevios = lentesCorrectivosPrevios;
     }
+    
+    public HistorialMedico(){
+        this.alergias = "";
+        this.antecedentesMedicosGenerales = "";
+        this.antecedentesOftalmologicos = "";
+        this.tratamientosOftalmologicosPrevios = "";
+        this.lentesCorrectivosPrevios = "";
+        this.idCitasPrevias = new int[0];
+    }
 
     public String getAlergias() {
         return alergias;

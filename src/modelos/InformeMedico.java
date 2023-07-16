@@ -22,6 +22,13 @@ public class InformeMedico {
         this.medicamentos = medicamentos;
         this.examenOcular = examenOcular;
     }
+    
+    public InformeMedico(){
+        this.dignostico = "";
+        this.tratamiento = "";
+        this.medicamentos = "";
+        this.examenOcular = "";
+    }
 
     public String getDignostico() {
         return dignostico;

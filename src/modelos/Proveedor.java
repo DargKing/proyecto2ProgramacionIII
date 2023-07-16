@@ -11,12 +11,20 @@ package modelos;
  */
 public class Proveedor {
     private int id;
-    private String nombreCompañia;
+    private String rifProveedor;
+    private String nombreProveedor;
+    private String materialesQueSuministra;
+    private String numeroDeTelefono;
+    private String correoElectronico;
     private String direccion;
 
-    public Proveedor(int id, String nombreCompañia, String direccion) {
+    public Proveedor(int id, String rifProveedor, String nombreProveedor, String materialesQueSuministra, String numeroDeTelefono, String correoElectronico, String direccion) {
         this.id = id;
-        this.nombreCompañia = nombreCompañia;
+        this.rifProveedor = rifProveedor;
+        this.nombreProveedor = nombreProveedor;
+        this.materialesQueSuministra = materialesQueSuministra;
+        this.numeroDeTelefono = numeroDeTelefono;
+        this.correoElectronico = correoElectronico;
         this.direccion = direccion;
     }
 
@@ -28,12 +36,44 @@ public class Proveedor {
         this.id = id;
     }
 
-    public String getNombreCompañia() {
-        return nombreCompañia;
+    public String getRifProveedor() {
+        return rifProveedor;
     }
 
-    public void setNombreCompañia(String nombreCompañia) {
-        this.nombreCompañia = nombreCompañia;
+    public void setRifProveedor(String rifProveedor) {
+        this.rifProveedor = rifProveedor;
+    }
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
+
+    public String getMaterialesQueSuministra() {
+        return materialesQueSuministra;
+    }
+
+    public void setMaterialesQueSuministra(String materialesQueSuministra) {
+        this.materialesQueSuministra = materialesQueSuministra;
+    }
+
+    public String getNumeroDeTelefono() {
+        return numeroDeTelefono;
+    }
+
+    public void setNumeroDeTelefono(String numeroDeTelefono) {
+        this.numeroDeTelefono = numeroDeTelefono;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
     public String getDireccion() {

@@ -7,6 +7,7 @@ package vistas;
 
 import java.util.ArrayList;
 import modelos.BaseDeDatos;
+import modelos.Cita;
 import modelos.Factura;
 import modelos.Paciente;
 import vistas.componentes.FacturaCarta;
@@ -327,19 +328,30 @@ public class MostrarPacienteFactura extends javax.swing.JPanel {
                 this.labelTelefono.setText(paciente.getTelefono());
 
                 ArrayList<Factura> facturas = this.database.getFacturas();
-
+                ArrayList<Cita> citas = this.database.getCitas();
+                
                 ArrayList<Factura> facturasPaciente = new ArrayList<>();
 
-                int[] idFacturas = paciente.getHistorial().getIdCitasPrevias();
+                int[] idCitasPrevias = paciente.getHistorial().getIdCitasPrevias();
 
-                for (int idFactura : idFacturas) {
-                    for (Factura factura : facturas) {
-                        if (factura.getId() == idFactura) {
-                            facturasPaciente.add(factura);
+                ArrayList<Cita> citasDelPaciente = new ArrayList<>();
+                
+                for (int idCitaPrevia: idCitasPrevias) {
+                    for(Cita cita: citas){
+                        if(cita.getId() == idCitaPrevia){
+                            citasDelPaciente.add(cita);
                         }
                     }
                 }
 
+                for(Factura factura: facturas){
+                    for(Cita cita: citasDelPaciente){
+                        if(cita.getIdFactura() == factura.getId()){
+                            facturasPaciente.add(factura);
+                        }
+                    }
+                }
+                
                 for (Factura factura : facturasPaciente) {
                     FacturaCarta fac = new FacturaCarta(factura);
 

@@ -10,6 +10,7 @@ package modelos;
  * @author yorman
  */
 public class Cita {
+
     private int id;
     private int idPaciente;
     private int idFactura;
@@ -18,17 +19,17 @@ public class Cita {
     private boolean completada;
     private InformeMedico informeDeCita;
     private String razon;
-    
+
     public Cita(int id, int idPaciente, String fecha, String hora, String razon) {
         this.id = id;
         this.idPaciente = idPaciente;
         this.fecha = fecha;
         this.hora = hora;
         this.razon = razon;
+        this.informeDeCita = new InformeMedico();
+        this.completada = false;
     }
 
-    
-    
     public int getId() {
         return id;
     }
@@ -76,8 +77,8 @@ public class Cita {
     public void setCompletada(boolean completada) {
         this.completada = completada;
     }
-    
-    public void completarCita(){
+
+    public void completarCita() {
         this.completada = true;
     }
 
@@ -96,6 +97,5 @@ public class Cita {
     public void setInformeDeCita(InformeMedico informeDeCita) {
         this.informeDeCita = informeDeCita;
     }
-    
-    
+
 }

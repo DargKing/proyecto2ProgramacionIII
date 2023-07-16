@@ -6,39 +6,26 @@
 package vistas;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import modelos.BaseDeDatos;
-import modelos.Cita;
 import modelos.Paciente;
 import vistas.componentes.ShowAlert;
 
 /**
  *
- * @author claud
+ * @author yorman
  */
-public class CrearCita extends javax.swing.JPanel {
+public class ModificarHistorial extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CrearCita
-     */
     BaseDeDatos database;
 
-    public CrearCita(VentanaPrincipal ventana) {
+    /**
+     * Creates new form ModificarHistorial
+     */
+    public ModificarHistorial(VentanaPrincipal ventana) {
         initComponents();
 
-        Calendar calendario = new GregorianCalendar();
-        
-        int year = calendario.get(Calendar.YEAR);
-        
-        for(int y = year; y < year + 5; y++){
-            this.fechaAño.addItem(Integer.toString(y));
-        }
-        
-        this.fechaAño.setSelectedIndex(0);
-        
-        database = ventana.getDatabase();
+        this.database = ventana.getDatabase();
     }
 
     /**
@@ -50,8 +37,6 @@ public class CrearCita extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        canvas1 = new java.awt.Canvas();
-        jLabel20 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         ladoIzquierdo = new javax.swing.JPanel();
@@ -69,30 +54,24 @@ public class CrearCita extends javax.swing.JPanel {
         direccion = new javax.swing.JTextField();
         ladoDerecho = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        motivoDeConsulta = new javax.swing.JTextArea();
+        alergias = new javax.swing.JTextArea();
         tituloFechaCita = new javax.swing.JLabel();
-        crearCita = new javax.swing.JButton();
+        modificarHistorial = new javax.swing.JButton();
         tituloMotivoConsulta = new javax.swing.JLabel();
         tituloHoraDeCita = new javax.swing.JLabel();
-        horaDeCita = new javax.swing.JTextField();
-        tituloFechaDia = new javax.swing.JLabel();
-        fechaDia = new javax.swing.JComboBox<>();
-        tituloFechaMes = new javax.swing.JLabel();
-        fechaMes = new javax.swing.JComboBox<>();
-        fechaAño = new javax.swing.JComboBox<>();
-        tituloFechaAño = new javax.swing.JLabel();
-
-        jLabel20.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel20.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText(" Dirección ");
-        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jScrollPane2 = new javax.swing.JScrollPane();
+        antecedentesMedicosGenerales = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        antecedentesOftalmologicosPrevios = new javax.swing.JTextArea();
+        tituloHoraDeCita1 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tratamientosOftalmologicosPrevios = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cita médica");
+        jLabel1.setText("Modificar Historial de Paciente");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -107,10 +86,10 @@ public class CrearCita extends javax.swing.JPanel {
         tituloGenero.setText(" Género ");
         tituloGenero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        edad.setEditable(false);
         edad.setBackground(new java.awt.Color(0, 153, 153));
         edad.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         edad.setForeground(new java.awt.Color(255, 255, 255));
-        edad.setText("Ingrese su edad aquí...");
         edad.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         edad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,10 +109,10 @@ public class CrearCita extends javax.swing.JPanel {
         tituloEdad.setText(" Edad ");
         tituloEdad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        nombre.setEditable(false);
         nombre.setBackground(new java.awt.Color(0, 153, 153));
         nombre.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         nombre.setForeground(new java.awt.Color(255, 255, 255));
-        nombre.setText("Inserte sus nombres aquí...");
         nombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,10 +146,10 @@ public class CrearCita extends javax.swing.JPanel {
         tituloNumeroDeTelefono.setText(" Número de télefono ");
         tituloNumeroDeTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        numeroDeTelefono.setEditable(false);
         numeroDeTelefono.setBackground(new java.awt.Color(0, 153, 153));
         numeroDeTelefono.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         numeroDeTelefono.setForeground(new java.awt.Color(255, 255, 255));
-        numeroDeTelefono.setText("0000-000-0000");
         numeroDeTelefono.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         numeroDeTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,10 +163,10 @@ public class CrearCita extends javax.swing.JPanel {
         tituloDireccion.setText(" Dirección ");
         tituloDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        direccion.setEditable(false);
         direccion.setBackground(new java.awt.Color(0, 153, 153));
         direccion.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         direccion.setForeground(new java.awt.Color(255, 255, 255));
-        direccion.setText("Ingresar aquí...");
         direccion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,150 +233,111 @@ public class CrearCita extends javax.swing.JPanel {
 
         ladoDerecho.setBackground(new java.awt.Color(0, 153, 153));
 
-        motivoDeConsulta.setColumns(20);
-        motivoDeConsulta.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        motivoDeConsulta.setRows(5);
-        motivoDeConsulta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane1.setViewportView(motivoDeConsulta);
+        alergias.setColumns(20);
+        alergias.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        alergias.setRows(5);
+        alergias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane1.setViewportView(alergias);
 
         tituloFechaCita.setBackground(new java.awt.Color(0, 0, 0));
         tituloFechaCita.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         tituloFechaCita.setForeground(new java.awt.Color(255, 255, 255));
-        tituloFechaCita.setText(" Fecha de la cita ");
+        tituloFechaCita.setText("Antecedentes Medicos Generales");
         tituloFechaCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        crearCita.setBackground(new java.awt.Color(23, 156, 188));
-        crearCita.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        crearCita.setText("Crear cita");
-        crearCita.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        crearCita.addActionListener(new java.awt.event.ActionListener() {
+        modificarHistorial.setBackground(new java.awt.Color(23, 156, 188));
+        modificarHistorial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        modificarHistorial.setText("Modificar Historial");
+        modificarHistorial.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        modificarHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crearCitaActionPerformed(evt);
+                modificarHistorialActionPerformed(evt);
             }
         });
 
         tituloMotivoConsulta.setBackground(new java.awt.Color(0, 0, 0));
         tituloMotivoConsulta.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         tituloMotivoConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        tituloMotivoConsulta.setText(" Motivo de la consulta ");
+        tituloMotivoConsulta.setText("Alergias");
         tituloMotivoConsulta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         tituloHoraDeCita.setBackground(new java.awt.Color(0, 0, 0));
         tituloHoraDeCita.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         tituloHoraDeCita.setForeground(new java.awt.Color(255, 255, 255));
-        tituloHoraDeCita.setText(" Hora asignada de la cita ");
+        tituloHoraDeCita.setText("Antecedentes Oftalmologicos Previos");
         tituloHoraDeCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        horaDeCita.setBackground(new java.awt.Color(0, 153, 153));
-        horaDeCita.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        horaDeCita.setForeground(new java.awt.Color(255, 255, 255));
-        horaDeCita.setText("00:00");
-        horaDeCita.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        horaDeCita.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horaDeCitaActionPerformed(evt);
-            }
-        });
+        antecedentesMedicosGenerales.setColumns(20);
+        antecedentesMedicosGenerales.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        antecedentesMedicosGenerales.setRows(5);
+        antecedentesMedicosGenerales.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane2.setViewportView(antecedentesMedicosGenerales);
 
-        tituloFechaDia.setBackground(new java.awt.Color(0, 0, 0));
-        tituloFechaDia.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
-        tituloFechaDia.setForeground(new java.awt.Color(255, 255, 255));
-        tituloFechaDia.setText("Dia:");
+        antecedentesOftalmologicosPrevios.setColumns(20);
+        antecedentesOftalmologicosPrevios.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        antecedentesOftalmologicosPrevios.setRows(5);
+        antecedentesOftalmologicosPrevios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane3.setViewportView(antecedentesOftalmologicosPrevios);
 
-        fechaDia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        fechaDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        fechaDia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaDiaActionPerformed(evt);
-            }
-        });
+        tituloHoraDeCita1.setBackground(new java.awt.Color(0, 0, 0));
+        tituloHoraDeCita1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloHoraDeCita1.setForeground(new java.awt.Color(255, 255, 255));
+        tituloHoraDeCita1.setText("Tratamientos Oftalmologicos Previos");
+        tituloHoraDeCita1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        tituloFechaMes.setBackground(new java.awt.Color(0, 0, 0));
-        tituloFechaMes.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
-        tituloFechaMes.setForeground(new java.awt.Color(255, 255, 255));
-        tituloFechaMes.setText("Mes:");
-
-        fechaMes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        fechaMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        fechaMes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaMesActionPerformed(evt);
-            }
-        });
-
-        fechaAño.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        fechaAño.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaAñoActionPerformed(evt);
-            }
-        });
-
-        tituloFechaAño.setBackground(new java.awt.Color(0, 0, 0));
-        tituloFechaAño.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
-        tituloFechaAño.setForeground(new java.awt.Color(255, 255, 255));
-        tituloFechaAño.setText("Año:");
+        tratamientosOftalmologicosPrevios.setColumns(20);
+        tratamientosOftalmologicosPrevios.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        tratamientosOftalmologicosPrevios.setRows(5);
+        tratamientosOftalmologicosPrevios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane4.setViewportView(tratamientosOftalmologicosPrevios);
 
         javax.swing.GroupLayout ladoDerechoLayout = new javax.swing.GroupLayout(ladoDerecho);
         ladoDerecho.setLayout(ladoDerechoLayout);
         ladoDerechoLayout.setHorizontalGroup(
             ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ladoDerechoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(modificarHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
             .addGroup(ladoDerechoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(horaDeCita)
+                    .addGroup(ladoDerechoLayout.createSequentialGroup()
+                        .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(ladoDerechoLayout.createSequentialGroup()
                         .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tituloFechaCita)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tituloMotivoConsulta)
-                            .addComponent(tituloHoraDeCita))
+                            .addComponent(tituloHoraDeCita)
+                            .addComponent(tituloHoraDeCita1)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(20, Short.MAX_VALUE))))
-            .addGroup(ladoDerechoLayout.createSequentialGroup()
-                .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ladoDerechoLayout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(crearCita, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ladoDerechoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tituloFechaDia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(tituloFechaMes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tituloFechaAño)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaAño, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         ladoDerechoLayout.setVerticalGroup(
             ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ladoDerechoLayout.createSequentialGroup()
                 .addComponent(tituloMotivoConsulta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(tituloFechaCita)
-                .addGap(9, 9, 9)
-                .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tituloFechaAño)
-                        .addComponent(fechaAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tituloFechaMes)
-                        .addComponent(fechaMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tituloFechaDia)
-                        .addComponent(fechaDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(tituloHoraDeCita)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tituloHoraDeCita1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(horaDeCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(crearCita, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(modificarHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -407,44 +347,40 @@ public class CrearCita extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ladoIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
                         .addComponent(ladoDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(13, 13, 13)
+                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(ladoIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ladoDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edadActionPerformed
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
-
-    private void horaDeCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaDeCitaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_horaDeCitaActionPerformed
-
-    private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_direccionActionPerformed
 
     private void cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cedulaActionPerformed
         ArrayList<Paciente> pacientes = database.getPacientes();
@@ -462,23 +398,28 @@ public class CrearCita extends javax.swing.JPanel {
 
                 this.numeroDeTelefono.setText(paciente.getTelefono());
                 this.direccion.setText(paciente.getDireccion());
-                
+
+                this.alergias.setText(paciente.getHistorial().getAlergias());
+                this.antecedentesMedicosGenerales.setText(paciente.getHistorial().getAntecedentesMedicosGenerales());
+                this.antecedentesOftalmologicosPrevios.setText(paciente.getHistorial().getAntecedentesOftalmologicos());
+                this.tratamientosOftalmologicosPrevios.setText(paciente.getHistorial().getTratamientosOftalmologicosPrevios());
+
                 return;
             }
         }
-        
+
         ShowAlert alerta = new ShowAlert("Error", "No se encontro el paciente", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_cedulaActionPerformed
-
-    private void edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edadActionPerformed
 
     private void numeroDeTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroDeTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numeroDeTelefonoActionPerformed
 
-    private void crearCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCitaActionPerformed
+    private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_direccionActionPerformed
+
+    private void modificarHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarHistorialActionPerformed
         // TODO add your handling code here:
 
         if (cedula.getText().equals("Introduce la cedula del paciente...") || cedula.getText().isEmpty() || cedula.getText().isBlank()) {
@@ -506,108 +447,62 @@ public class CrearCita extends javax.swing.JPanel {
             return;
         }
 
-        if (motivoDeConsulta.getText().isEmpty() || motivoDeConsulta.getText().isBlank()) {
-            ShowAlert alerta = new ShowAlert("Error", "Inserte un Motivo de consulta", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
         ArrayList<Paciente> pacientes = database.getPacientes();
 
-        boolean exist = false;
-        Paciente pacien = new Paciente();
+        Paciente paciente = null;
 
-        for (Paciente paciente : pacientes) {
-            if (paciente.getCedula().equals(cedula.getText())) {
-                exist = true;
-                pacien = paciente;
+        for (Paciente temp : pacientes) {
+            if (temp.getCedula().equals(cedula.getText())) {
+                paciente = temp;
                 break;
             }
         }
 
-        String fechaCita = (String)this.fechaAño.getSelectedItem() + "-" + (String)this.fechaMes.getSelectedItem() + "-" + (String)this.fechaDia.getSelectedItem();
-        
-        if (exist) {
-            Paciente paciente = pacien;
-
-            Cita cita = new Cita(database.getCitas().size() + 1, paciente.getId(), fechaCita, horaDeCita.getText(), this.motivoDeConsulta.getText());
-            database.escribirNuevaCita(cita);
-            
-            int[] temp = new int[paciente.getHistorial().getIdCitasPrevias().length + 1];
-            
-            for(int i = 0; i < temp.length; i++){
-                if(i != temp.length - 1){
-                    temp[i] = paciente.getHistorial().getIdCitasPrevias()[i];
-                } else {
-                    temp[i] = cita.getId();
-                }
-            }
-            
-            paciente.getHistorial().setIdCitasPrevias(temp);
-            
-            database.modificarPaciente(paciente);
-        } else {
-            Paciente paciente = new Paciente(database.getPacientes().size() + 1, nombre.getText(), cedula.getText(), direccion.getText(), numeroDeTelefono.getText(), Integer.parseInt(edad.getText()), (String) genero.getSelectedItem(), database.getCitas().size() + 1);
-            database.escribirNuevoPaciente(paciente);
-
-            Cita cita = new Cita(database.getCitas().size() + 1, paciente.getId(), fechaCita, horaDeCita.getText(), this.motivoDeConsulta.getText());
-            database.escribirNuevaCita(cita);
+        if (paciente == null) {
+            ShowAlert alerta = new ShowAlert("Error", "No se encontro el paciente", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
-        this.nombre.setText("Inserte sus nombres aquí...");
-        this.cedula.setText("Introduce la cedula del paciente...");
-        this.direccion.setText("Ingresar aquí...");
-        this.horaDeCita.setText("00:00");
-        this.numeroDeTelefono.setText("0000-000-0000");
-        this.motivoDeConsulta.setText("");
-        this.edad.setText("Ingrese su edad aquí...");
+        paciente.getHistorial().setAlergias(this.alergias.getText());
+        paciente.getHistorial().setAntecedentesMedicosGenerales(this.antecedentesMedicosGenerales.getText());
+        paciente.getHistorial().setAntecedentesOftalmologicos(this.antecedentesOftalmologicosPrevios.getText());
+        paciente.getHistorial().setTratamientosOftalmologicosPrevios(this.tratamientosOftalmologicosPrevios.getText());
         
-        ShowAlert alerta = new ShowAlert("Finalizado", "Se ha creado con exito la cita", JOptionPane.PLAIN_MESSAGE);
-    }//GEN-LAST:event_crearCitaActionPerformed
-
-    private void fechaDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaDiaActionPerformed
-
-    private void fechaMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaMesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaMesActionPerformed
-
-    private void fechaAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaAñoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaAñoActionPerformed
+        this.database.modificarPaciente(paciente);
+        
+        ShowAlert alerta = new ShowAlert("Exito", "Se modifico el historial con exito", JOptionPane.PLAIN_MESSAGE);
+    }//GEN-LAST:event_modificarHistorialActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Canvas canvas1;
+    private javax.swing.JTextArea alergias;
+    private javax.swing.JTextArea antecedentesMedicosGenerales;
+    private javax.swing.JTextArea antecedentesOftalmologicosPrevios;
     private javax.swing.JTextField cedula;
-    private javax.swing.JButton crearCita;
     private javax.swing.JTextField direccion;
     private javax.swing.JTextField edad;
-    private javax.swing.JComboBox<String> fechaAño;
-    private javax.swing.JComboBox<String> fechaDia;
-    private javax.swing.JComboBox<String> fechaMes;
     private javax.swing.JComboBox<String> genero;
-    private javax.swing.JTextField horaDeCita;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel ladoDerecho;
     private javax.swing.JPanel ladoIzquierdo;
-    private javax.swing.JTextArea motivoDeConsulta;
+    private javax.swing.JButton modificarHistorial;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField numeroDeTelefono;
     private javax.swing.JLabel tituloCedula;
     private javax.swing.JLabel tituloDireccion;
     private javax.swing.JLabel tituloEdad;
-    private javax.swing.JLabel tituloFechaAño;
     private javax.swing.JLabel tituloFechaCita;
-    private javax.swing.JLabel tituloFechaDia;
-    private javax.swing.JLabel tituloFechaMes;
     private javax.swing.JLabel tituloGenero;
     private javax.swing.JLabel tituloHoraDeCita;
+    private javax.swing.JLabel tituloHoraDeCita1;
     private javax.swing.JLabel tituloMotivoConsulta;
     private javax.swing.JLabel tituloNombrePaciente;
     private javax.swing.JLabel tituloNumeroDeTelefono;
+    private javax.swing.JTextArea tratamientosOftalmologicosPrevios;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,17 +5,42 @@
  */
 package vistas;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
+import modelos.BaseDeDatos;
+import modelos.CompraMaterialMedico;
+import modelos.MaterialMedico;
+import modelos.Pago.Monedas;
+import modelos.Proveedor;
+import vistas.componentes.ShowAlert;
+
 /**
  *
  * @author claud
  */
 public class CrearMaterialMedico extends javax.swing.JPanel {
 
+    BaseDeDatos database;
+
     /**
      * Creates new form CrearMaterialMedico
      */
-    public CrearMaterialMedico() {
+    public CrearMaterialMedico(VentanaPrincipal ventana) {
         initComponents();
+
+        Calendar calendario = new GregorianCalendar();
+
+        int year = calendario.get(Calendar.YEAR);
+
+        for (int y = year; y < year + 5; y++) {
+            this.fechaAño.addItem(Integer.toString(y));
+        }
+
+        this.fechaAño.setSelectedIndex(0);
+
+        database = ventana.getDatabase();
     }
 
     /**
@@ -27,412 +52,697 @@ public class CrearMaterialMedico extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        canvas1 = new java.awt.Canvas();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jTextField14 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        ladoIzquierdo = new javax.swing.JPanel();
+        tituloCantidad = new javax.swing.JLabel();
+        precioIndividual = new javax.swing.JTextField();
+        tituloDescripcion = new javax.swing.JLabel();
+        tituloPrecioIndividual = new javax.swing.JLabel();
+        nombreMaterial = new javax.swing.JTextField();
+        tituloNombreMaterial = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        descripcion = new javax.swing.JTextArea();
+        cantidad = new javax.swing.JTextField();
+        tituloFechaDeCompra = new javax.swing.JLabel();
+        tituloFechaDia = new javax.swing.JLabel();
+        tituloFechaMes = new javax.swing.JLabel();
+        tituloFechaAño = new javax.swing.JLabel();
+        fechaAño = new javax.swing.JComboBox<>();
+        fechaDia = new javax.swing.JComboBox<>();
+        fechaMes = new javax.swing.JComboBox<>();
+        tituloNombreMaterial1 = new javax.swing.JLabel();
+        codigo = new javax.swing.JTextField();
+        tituloFactura = new javax.swing.JLabel();
+        factura = new javax.swing.JTextField();
+        tituloFechaDeCompra1 = new javax.swing.JLabel();
+        moneda = new javax.swing.JComboBox<>();
+        ladoDerecho = new javax.swing.JPanel();
+        comprarMaterial = new javax.swing.JButton();
+        tituloNumeroDeTelefono = new javax.swing.JLabel();
+        tituloNombreProveedor = new javax.swing.JLabel();
+        tituloRif = new javax.swing.JLabel();
+        rif = new javax.swing.JTextField();
+        nombreProveedor = new javax.swing.JTextField();
+        numeroDeTelefono = new javax.swing.JTextField();
+        direccion = new javax.swing.JTextField();
+        tituloDireccion = new javax.swing.JLabel();
+        correoElectronico = new javax.swing.JTextField();
+        tituloCorreoElectronico = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(23, 156, 188));
-
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText(" Nombre del material recibido  ");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText(" Cantidad de material disponible");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Generar compra");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton2.setBackground(new java.awt.Color(0, 153, 153));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Volver");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel11.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel11.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText(" Nombre del proveedor ");
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        jTextField8.setBackground(new java.awt.Color(23, 156, 188));
-        jTextField8.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField8.setText("Ingrese el precio aquí...");
-        jTextField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
-
-        jLabel18.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel18.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText(" Descripción del material  ");
-        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        jTextField7.setBackground(new java.awt.Color(23, 156, 188));
-        jTextField7.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField7.setText("Ingrese la cantidad aquí...");
-        jTextField7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
+        setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Material del consultorio");
+        jLabel1.setText("Registro de Compra de Material Medico");
 
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setPreferredSize(new java.awt.Dimension(3, 0));
 
-        jTextField12.setBackground(new java.awt.Color(23, 156, 188));
-        jTextField12.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField12.setText("Ingrese el nombre aquí...");
-        jTextField12.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        ladoIzquierdo.setBackground(new java.awt.Color(0, 153, 153));
+
+        tituloCantidad.setBackground(new java.awt.Color(0, 0, 0));
+        tituloCantidad.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        tituloCantidad.setText("Cantidad");
+        tituloCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        precioIndividual.setBackground(new java.awt.Color(0, 153, 153));
+        precioIndividual.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        precioIndividual.setForeground(new java.awt.Color(255, 255, 255));
+        precioIndividual.setText("Precio individual...");
+        precioIndividual.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        precioIndividual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                precioIndividualActionPerformed(evt);
             }
         });
 
-        jTextField13.setBackground(new java.awt.Color(23, 156, 188));
-        jTextField13.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jTextField13.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField13.setText("Ingrese el nombre aquí...");
-        jTextField13.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+        tituloDescripcion.setBackground(new java.awt.Color(0, 0, 0));
+        tituloDescripcion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        tituloDescripcion.setText("Descripcion");
+        tituloDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        tituloPrecioIndividual.setBackground(new java.awt.Color(0, 0, 0));
+        tituloPrecioIndividual.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloPrecioIndividual.setForeground(new java.awt.Color(255, 255, 255));
+        tituloPrecioIndividual.setText("Precio Individual");
+        tituloPrecioIndividual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        nombreMaterial.setBackground(new java.awt.Color(0, 153, 153));
+        nombreMaterial.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        nombreMaterial.setForeground(new java.awt.Color(255, 255, 255));
+        nombreMaterial.setText("Introduce el nombre del material...");
+        nombreMaterial.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        nombreMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
+                nombreMaterialActionPerformed(evt);
             }
         });
 
-        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText(" Precio del material");
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        tituloNombreMaterial.setBackground(new java.awt.Color(0, 0, 0));
+        tituloNombreMaterial.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloNombreMaterial.setForeground(new java.awt.Color(255, 255, 255));
+        tituloNombreMaterial.setText("Nombre Material Medico");
+        tituloNombreMaterial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        descripcion.setColumns(20);
+        descripcion.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        descripcion.setRows(5);
+        descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane6.setViewportView(descripcion);
 
-        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel14.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText(" Número de lote");
-        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        jLabel15.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel15.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText(" Fecha de la compra ");
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        jTextArea3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
-
-        jTextField14.setBackground(new java.awt.Color(23, 156, 188));
-        jTextField14.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jTextField14.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField14.setText("00/00/0000");
-        jTextField14.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+        cantidad.setBackground(new java.awt.Color(0, 153, 153));
+        cantidad.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        cantidad.setForeground(new java.awt.Color(255, 255, 255));
+        cantidad.setText("Cantidad...");
+        cantidad.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        cantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
+                cantidadActionPerformed(evt);
             }
         });
 
-        jLabel16.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel16.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText(" Fecha de caducidad del material ");
-        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        tituloFechaDeCompra.setBackground(new java.awt.Color(0, 0, 0));
+        tituloFechaDeCompra.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloFechaDeCompra.setForeground(new java.awt.Color(255, 255, 255));
+        tituloFechaDeCompra.setText("Fecha de Compra");
+        tituloFechaDeCompra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jTextField15.setBackground(new java.awt.Color(23, 156, 188));
-        jTextField15.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jTextField15.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField15.setText("00/00/0000");
-        jTextField15.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+        tituloFechaDia.setBackground(new java.awt.Color(0, 0, 0));
+        tituloFechaDia.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloFechaDia.setForeground(new java.awt.Color(255, 255, 255));
+        tituloFechaDia.setText("Dia:");
+
+        tituloFechaMes.setBackground(new java.awt.Color(0, 0, 0));
+        tituloFechaMes.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloFechaMes.setForeground(new java.awt.Color(255, 255, 255));
+        tituloFechaMes.setText("Mes:");
+
+        tituloFechaAño.setBackground(new java.awt.Color(0, 0, 0));
+        tituloFechaAño.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloFechaAño.setForeground(new java.awt.Color(255, 255, 255));
+        tituloFechaAño.setText("Año:");
+
+        fechaAño.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fechaAño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
+                fechaAñoActionPerformed(evt);
             }
         });
 
-        jLabel17.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel17.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText(" Ubicación del material en el consultorio");
-        jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        jTextField16.setBackground(new java.awt.Color(23, 156, 188));
-        jTextField16.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jTextField16.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField16.setText("Sala, oficina, habitación...");
-        jTextField16.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+        fechaDia.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fechaDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        fechaDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
+                fechaDiaActionPerformed(evt);
             }
         });
 
-        jTextField17.setBackground(new java.awt.Color(23, 156, 188));
-        jTextField17.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jTextField17.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField17.setText("Ingrese el número aquí");
-        jTextField17.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
+        fechaMes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fechaMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        fechaMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
+                fechaMesActionPerformed(evt);
             }
         });
 
-        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel19.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText(" Método de pago de la compra");
-        jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        tituloNombreMaterial1.setBackground(new java.awt.Color(0, 0, 0));
+        tituloNombreMaterial1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloNombreMaterial1.setForeground(new java.awt.Color(255, 255, 255));
+        tituloNombreMaterial1.setText("Codigo Material Medico");
+        tituloNombreMaterial1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        codigo.setBackground(new java.awt.Color(0, 153, 153));
+        codigo.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        codigo.setForeground(new java.awt.Color(255, 255, 255));
+        codigo.setText("Introduce el codigo del material medico...");
+        codigo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(150, 150, 150)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(462, 462, 462)
-                                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel11)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+        tituloFactura.setBackground(new java.awt.Color(0, 0, 0));
+        tituloFactura.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloFactura.setForeground(new java.awt.Color(255, 255, 255));
+        tituloFactura.setText("Factura");
+        tituloFactura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        factura.setBackground(new java.awt.Color(0, 153, 153));
+        factura.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        factura.setForeground(new java.awt.Color(255, 255, 255));
+        factura.setText("Numero de factura...");
+        factura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        factura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                facturaActionPerformed(evt);
+            }
+        });
+
+        tituloFechaDeCompra1.setBackground(new java.awt.Color(0, 0, 0));
+        tituloFechaDeCompra1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloFechaDeCompra1.setForeground(new java.awt.Color(255, 255, 255));
+        tituloFechaDeCompra1.setText("Moneda");
+        tituloFechaDeCompra1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        moneda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        moneda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DOLARES AMERICANOS", "BOLIVARES" }));
+        moneda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monedaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ladoIzquierdoLayout = new javax.swing.GroupLayout(ladoIzquierdo);
+        ladoIzquierdo.setLayout(ladoIzquierdoLayout);
+        ladoIzquierdoLayout.setHorizontalGroup(
+            ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ladoIzquierdoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tituloNombreMaterial)
+                    .addComponent(nombreMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ladoIzquierdoLayout.createSequentialGroup()
+                        .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tituloCantidad)
+                            .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
+                        .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(precioIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tituloPrecioIndividual)))
+                    .addComponent(tituloFechaDeCompra)
+                    .addGroup(ladoIzquierdoLayout.createSequentialGroup()
+                        .addComponent(tituloFechaDia)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                            .addComponent(jLabel17)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(36, 36, 36))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(153, 153, 153))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(326, 326, 326)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(273, 273, 273))
+                        .addComponent(fechaDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(tituloFechaMes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(tituloFechaAño)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaAño, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tituloNombreMaterial1)
+                    .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ladoIzquierdoLayout.createSequentialGroup()
+                        .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tituloDescripcion)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(factura)
+                            .addGroup(ladoIzquierdoLayout.createSequentialGroup()
+                                .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tituloFactura)
+                                    .addComponent(tituloFechaDeCompra1)
+                                    .addComponent(moneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1)
-                .addGap(1, 1, 1)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel18))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel15)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel16)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 55, Short.MAX_VALUE))
-                    .addComponent(jSeparator2))
+        ladoIzquierdoLayout.setVerticalGroup(
+            ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ladoIzquierdoLayout.createSequentialGroup()
+                .addComponent(tituloNombreMaterial1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(tituloNombreMaterial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nombreMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ladoIzquierdoLayout.createSequentialGroup()
+                        .addComponent(tituloDescripcion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(ladoIzquierdoLayout.createSequentialGroup()
+                        .addComponent(tituloFactura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tituloFechaDeCompra1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(moneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tituloCantidad)
+                    .addComponent(tituloPrecioIndividual))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(precioIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(tituloFechaDeCompra)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tituloFechaAño)
+                        .addComponent(fechaAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tituloFechaMes)
+                        .addComponent(fechaMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ladoIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tituloFechaDia)
+                        .addComponent(fechaDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(103, 103, 103))
+        );
+
+        ladoDerecho.setBackground(new java.awt.Color(0, 153, 153));
+
+        comprarMaterial.setBackground(new java.awt.Color(23, 156, 188));
+        comprarMaterial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        comprarMaterial.setText("Comprar Material Medico");
+        comprarMaterial.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        comprarMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprarMaterialActionPerformed(evt);
+            }
+        });
+
+        tituloNumeroDeTelefono.setBackground(new java.awt.Color(0, 0, 0));
+        tituloNumeroDeTelefono.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloNumeroDeTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        tituloNumeroDeTelefono.setText("Numero de Telefono");
+        tituloNumeroDeTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        tituloNombreProveedor.setBackground(new java.awt.Color(0, 0, 0));
+        tituloNombreProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloNombreProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        tituloNombreProveedor.setText("Nombre del Proveedor");
+        tituloNombreProveedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        tituloRif.setBackground(new java.awt.Color(0, 0, 0));
+        tituloRif.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloRif.setForeground(new java.awt.Color(255, 255, 255));
+        tituloRif.setText("RIF Proveedor");
+        tituloRif.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        rif.setBackground(new java.awt.Color(0, 153, 153));
+        rif.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        rif.setForeground(new java.awt.Color(255, 255, 255));
+        rif.setText("Introduce el RIF del proveedor...");
+        rif.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        rif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rifActionPerformed(evt);
+            }
+        });
+
+        nombreProveedor.setEditable(false);
+        nombreProveedor.setBackground(new java.awt.Color(0, 153, 153));
+        nombreProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        nombreProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        nombreProveedor.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        nombreProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreProveedorActionPerformed(evt);
+            }
+        });
+
+        numeroDeTelefono.setEditable(false);
+        numeroDeTelefono.setBackground(new java.awt.Color(0, 153, 153));
+        numeroDeTelefono.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        numeroDeTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        numeroDeTelefono.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        numeroDeTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numeroDeTelefonoActionPerformed(evt);
+            }
+        });
+
+        direccion.setEditable(false);
+        direccion.setBackground(new java.awt.Color(0, 153, 153));
+        direccion.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        direccion.setForeground(new java.awt.Color(255, 255, 255));
+        direccion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        direccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                direccionActionPerformed(evt);
+            }
+        });
+
+        tituloDireccion.setBackground(new java.awt.Color(0, 0, 0));
+        tituloDireccion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        tituloDireccion.setText("Direccion");
+        tituloDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        correoElectronico.setEditable(false);
+        correoElectronico.setBackground(new java.awt.Color(0, 153, 153));
+        correoElectronico.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        correoElectronico.setForeground(new java.awt.Color(255, 255, 255));
+        correoElectronico.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        correoElectronico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                correoElectronicoActionPerformed(evt);
+            }
+        });
+
+        tituloCorreoElectronico.setBackground(new java.awt.Color(0, 0, 0));
+        tituloCorreoElectronico.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        tituloCorreoElectronico.setForeground(new java.awt.Color(255, 255, 255));
+        tituloCorreoElectronico.setText("Correo Electronico");
+        tituloCorreoElectronico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        javax.swing.GroupLayout ladoDerechoLayout = new javax.swing.GroupLayout(ladoDerecho);
+        ladoDerecho.setLayout(ladoDerechoLayout);
+        ladoDerechoLayout.setHorizontalGroup(
+            ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ladoDerechoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tituloRif)
+                .addGap(382, 382, 382))
+            .addGroup(ladoDerechoLayout.createSequentialGroup()
+                .addGroup(ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloNombreProveedor)
+                    .addComponent(rif, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloNumeroDeTelefono)
+                    .addComponent(numeroDeTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloDireccion)
+                    .addComponent(direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloCorreoElectronico)
+                    .addComponent(correoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ladoDerechoLayout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(comprarMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ladoDerechoLayout.setVerticalGroup(
+            ladoDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ladoDerechoLayout.createSequentialGroup()
+                .addComponent(tituloRif)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tituloNombreProveedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nombreProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tituloNumeroDeTelefono)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(numeroDeTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tituloDireccion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tituloCorreoElectronico)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(correoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(comprarMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(ladoIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(ladoDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(ladoIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ladoDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void precioIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioIndividualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_precioIndividualActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    private void nombreMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreMaterialActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+        ShowAlert alerta = new ShowAlert("Error", "No se encontro el paciente", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_nombreMaterialActionPerformed
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
+    private void comprarMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarMaterialActionPerformed
+        if(this.codigo.getText().equals("Introduce el codigo del material medico...") || this.codigo.getText().isEmpty() 
+                || this.codigo.getText().isBlank()){
+            ShowAlert alerta = new ShowAlert("Error", "Introduce el codigo del material medico", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(this.nombreMaterial.getText().equals("Introduce el nombre del material...") || this.nombreMaterial.getText().isEmpty() 
+                || this.nombreMaterial.getText().isBlank()){
+            ShowAlert alerta = new ShowAlert("Error", "Introduce el nombre del material", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(this.factura.getText().equals("Numero de factura...") || this.factura.getText().isEmpty() 
+                || this.factura.getText().isBlank()){
+            ShowAlert alerta = new ShowAlert("Error", "Introduce el numero de factura de la compra", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(this.cantidad.getText().equals("Cantidad...") || this.cantidad.getText().isEmpty() 
+                || this.cantidad.getText().isBlank()){
+            ShowAlert alerta = new ShowAlert("Error", "Introduce la cantidad de material a registrar", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(this.precioIndividual.getText().equals("Precio individual...") || this.precioIndividual.getText().isEmpty() 
+                || this.precioIndividual.getText().isBlank()){
+            ShowAlert alerta = new ShowAlert("Error", "Introduce el precio individual de los productos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(this.rif.getText().equals("Introduce el RIF del proveedor...") || this.rif.getText().isEmpty() 
+                || this.rif.getText().isBlank()){
+            ShowAlert alerta = new ShowAlert("Error", "Introduce el RIF del proveedor", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        ArrayList<MaterialMedico> materiales = this.database.getMaterialesMedicos();
+        MaterialMedico material = null;
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
+        for (MaterialMedico m : materiales) {
+            if (m.getCodigo().equals(this.codigo.getText())) {
+                material = m;
+            }
+        }
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+        ArrayList<Proveedor> proveedores = this.database.getProveedores();
+        Proveedor proveedor = null;
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+        for (Proveedor p : proveedores) {
+            if (p.getRifProveedor().equals(this.rif.getText())) {
+                proveedor = p;
+            }
+        }
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+        if (proveedor == null) {
+            ShowAlert alerta = new ShowAlert("Error", "El proveedor indicado no existe", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String fechaDeCompra = this.fechaAño.getItemAt(this.fechaAño.getSelectedIndex()) + "-"
+                + this.fechaMes.getItemAt(this.fechaMes.getSelectedIndex())
+                + "-" + this.fechaDia.getItemAt(this.fechaDia.getSelectedIndex());
+
+        int moneda = Monedas.BOLIVARES;
+
+        if (this.moneda.getItemAt(this.moneda.getSelectedIndex()).equals("DOLARES AMERICANOS")) {
+            moneda = Monedas.DOLARES_AMERICANOS;
+        }
+
+        if (material == null) {
+            material = new MaterialMedico(materiales.size() + 1, this.codigo.getText(), this.nombreMaterial.getText(), this.descripcion.getText(), Integer.parseInt(this.cantidad.getText()));
+
+            CompraMaterialMedico compra = new CompraMaterialMedico(material.getId(), Integer.parseInt(this.factura.getText()), Integer.parseInt(this.cantidad.getText()), Integer.parseInt(this.precioIndividual.getText()), proveedor.getId(), fechaDeCompra, moneda);
+
+            this.database.escribirNuevaCompraMaterialMedico(compra);
+            this.database.escribirNuevoMaterialMedico(material);
+            
+            
+        } else {
+            material.setDescripcion(this.descripcion.getText());
+            material.setNombreMaterial(this.nombreMaterial.getText());
+            material.setCantidad(material.getCantidad() + Integer.parseInt(this.cantidad.getText()));
+            
+            CompraMaterialMedico compra = new CompraMaterialMedico(material.getId(), Integer.parseInt(this.factura.getText()), Integer.parseInt(this.cantidad.getText()), Integer.parseInt(this.precioIndividual.getText()), proveedor.getId(), fechaDeCompra, moneda);
+            
+            this.database.modificarMaterialMedico(material);
+            this.database.escribirNuevaCompraMaterialMedico(compra);
+        }
+        
+        ShowAlert alerta = new ShowAlert("Finalizado", "Se a registrado la compra con exito", JOptionPane.PLAIN_MESSAGE);
+    }//GEN-LAST:event_comprarMaterialActionPerformed
+
+    private void cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
+    }//GEN-LAST:event_cantidadActionPerformed
+
+    private void rifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rifActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Proveedor> proveedores = this.database.getProveedores();
+
+        for (Proveedor p : proveedores) {
+            if (p.getRifProveedor().equals(this.rif.getText())) {
+                this.nombreProveedor.setText(p.getNombreProveedor());
+                this.direccion.setText(p.getDireccion());
+                this.correoElectronico.setText(p.getCorreoElectronico());
+                this.numeroDeTelefono.setText(p.getNumeroDeTelefono());
+            }
+        }
+    }//GEN-LAST:event_rifActionPerformed
+
+    private void nombreProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreProveedorActionPerformed
+
+    private void numeroDeTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroDeTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numeroDeTelefonoActionPerformed
+
+    private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_direccionActionPerformed
+
+    private void correoElectronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoElectronicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_correoElectronicoActionPerformed
+
+    private void fechaDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaDiaActionPerformed
+
+    private void fechaMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaMesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaMesActionPerformed
+
+    private void fechaAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaAñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaAñoActionPerformed
+
+    private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
+        // TODO add your handling code here:
+        ArrayList<MaterialMedico> materiales = this.database.getMaterialesMedicos();
+
+        for (MaterialMedico m : materiales) {
+            if (m.getCodigo().equals(this.codigo.getText())) {
+                this.nombreMaterial.setText(m.getNombreMaterial());
+                this.descripcion.setText(m.getDescripcion());
+            }
+        }
+    }//GEN-LAST:event_codigoActionPerformed
+
+    private void facturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_facturaActionPerformed
+
+    private void monedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monedaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Canvas canvas1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JTextField cantidad;
+    private javax.swing.JTextField codigo;
+    private javax.swing.JButton comprarMaterial;
+    private javax.swing.JTextField correoElectronico;
+    private javax.swing.JTextArea descripcion;
+    private javax.swing.JTextField direccion;
+    private javax.swing.JTextField factura;
+    private javax.swing.JComboBox<String> fechaAño;
+    private javax.swing.JComboBox<String> fechaDia;
+    private javax.swing.JComboBox<String> fechaMes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JPanel ladoDerecho;
+    private javax.swing.JPanel ladoIzquierdo;
+    private javax.swing.JComboBox<String> moneda;
+    private javax.swing.JTextField nombreMaterial;
+    private javax.swing.JTextField nombreProveedor;
+    private javax.swing.JTextField numeroDeTelefono;
+    private javax.swing.JTextField precioIndividual;
+    private javax.swing.JTextField rif;
+    private javax.swing.JLabel tituloCantidad;
+    private javax.swing.JLabel tituloCorreoElectronico;
+    private javax.swing.JLabel tituloDescripcion;
+    private javax.swing.JLabel tituloDireccion;
+    private javax.swing.JLabel tituloFactura;
+    private javax.swing.JLabel tituloFechaAño;
+    private javax.swing.JLabel tituloFechaDeCompra;
+    private javax.swing.JLabel tituloFechaDeCompra1;
+    private javax.swing.JLabel tituloFechaDia;
+    private javax.swing.JLabel tituloFechaMes;
+    private javax.swing.JLabel tituloNombreMaterial;
+    private javax.swing.JLabel tituloNombreMaterial1;
+    private javax.swing.JLabel tituloNombreProveedor;
+    private javax.swing.JLabel tituloNumeroDeTelefono;
+    private javax.swing.JLabel tituloPrecioIndividual;
+    private javax.swing.JLabel tituloRif;
     // End of variables declaration//GEN-END:variables
 }

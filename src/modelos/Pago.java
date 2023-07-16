@@ -12,12 +12,12 @@ package modelos;
 public class Pago {
     public static class MetodosDePago {
         public static final int PAGO_MOVIL = 1;
-        public static final int EFECTIVO = 2;
+        public static final int EFECTIVO = 0;
     }
     
     public static class Monedas {
-        public static final int DOLARES_AMERICANOS = 1;
-        public static final int BOLIVARES = 2;
+        public static final int DOLARES_AMERICANOS = 0;
+        public static final int BOLIVARES = 1;
     }
 
     private long monto;

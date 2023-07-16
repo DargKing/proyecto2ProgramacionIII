@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/MostrarEgresos.java</file>
+            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/componentes/HeaderCita.java</file>
             <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/MenuSecretaria.java</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/database/facturas.json</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/MostrarCitas.java</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/componentes/FacturaCarta.java</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/database/citas.json</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/modelos/Cita.java</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/MostrarHistorial.java</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/database/pacientes.json</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/componentes/CitasCarta.java</file>
-            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/modelos/Factura.java</file>
+            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/MostrarIngresos.java</file>
+            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/controladores/ControladorVentanas.java</file>
+            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/database/proveedores.json</file>
+            <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/vistas/MostrarActividad.java</file>
             <file>file:/C:/Users/yorman/Documents/NetBeansProjects/proyecto2/src/modelos/BaseDeDatos.java</file>
         </group>
     </open-files>

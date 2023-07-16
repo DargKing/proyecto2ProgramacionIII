@@ -11,15 +11,37 @@ package modelos;
  */
 public class MaterialMedico {
     private int id;
+    private String codigo;
+    private String nombreMaterial;
     private String descripcion;
     private int cantidad;
-    private int idProveedor;
 
-    public MaterialMedico(int id, String descripcion, int cantidad, int idProveedor) {
+    public MaterialMedico(int id, String codigo, String nombreMaterial, String descripcion, int cantidad) {
         this.id = id;
+        this.codigo = codigo;
+        this.nombreMaterial = nombreMaterial;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
-        this.idProveedor = idProveedor;
+    }
+
+
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    
+    
+    public String getNombreMaterial() {
+        return nombreMaterial;
+    }
+
+    public void setNombreMaterial(String nombreMateria) {
+        this.nombreMaterial = nombreMateria;
     }
 
     public int getId() {
@@ -44,13 +66,5 @@ public class MaterialMedico {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public int getIdProveedor() {
-        return idProveedor;
-    }
-
-    public void setIdProveedor(int idProveedor) {
-        this.idProveedor = idProveedor;
     }
 }
